@@ -1,7 +1,7 @@
 import wordsearch
 import patternupdater
 import wordfiltering
-import wordsorter
+import recommendations
 
 patterns = ['[abcdefghijklmnopqrstuvwxyz]'
                 , '[abcdefghijklmnopqrstuvwxyz]'
@@ -22,10 +22,9 @@ while (True):
     # Filter out words that don't contain yellows
     filteredResults = wordfiltering.yellowFilter(yellows, results)
 
-    # Sorting...
-    sortedResults = wordsorter.sortByLetterScore(filteredResults)
+    print(f"Possible Matches: {filteredResults} Total: {len(filteredResults)}")
 
-    print(f"Possible Matches: {sortedResults} Total: {len(sortedResults)}")
+    recommendations.make(filteredResults)
     
-    if(len(sortedResults)<=1):
+    if(len(filteredResults)<=1):
         exit()

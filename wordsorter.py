@@ -12,12 +12,12 @@ def sortByUniqueness(results):
 def compareWeight(a ,b):
     weightedLetters = {'a': 4467, 'b': 1162, 'c': 1546, 'd': 1399, 'e': 4255, 'f': 661, 'g': 1102, 'h': 1323, 'i': 2581, 'j': 163, 'k': 882, 'l': 2368, 'm': 1301, 'n': 2214, 'o': 2801, 'p': 1293, 'q': 84, 'r': 3043, 's': 2383, 't': 2381, 'u': 1881, 'v': 466, 'w': 685, 'x': 189, 'y': 1605, 'z': 250}
     scoreA = 0
-    for la in list(a):
+    for la in set(list(a)):
         scoreA+=weightedLetters[la]
     scoreB = 0
-    for lb in list(b):
+    for lb in set(list(b)):
         scoreB+=weightedLetters[lb]
-    return scoreA-scoreB
+    return scoreB-scoreA
 
 def sortByLetterScore(results):
     return sorted(results, key=cmp_to_key(compareWeight))

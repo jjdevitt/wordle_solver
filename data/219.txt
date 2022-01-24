@@ -1,0 +1,14 @@
+Enter guess:roads
+Enter highlights:bybbb
+
+Enter guess:jumbo
+Enter highlights:bbbby
+
+Enter guess:opine
+Enter highlights:ybbyb
+
+Enter guess:flown
+Enter highlights:bygby
+
+Enter guess:knock
+Enter highlights:gggbb

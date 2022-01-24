@@ -1,14 +1,7 @@
 from operator import contains
 import wordsearch
 import patternupdater
-
-
-
-def filt(word, yellowsArr):
-    for yellow in yellowsArr:
-        if yellow in word:
-            return True
-    return False
+import yellowfiltering
 
 patternArr = ['[abcdefghijklmnopqrstuvwxyz]'
                 , '[abcdefghijklmnopqrstuvwxyz]'
@@ -16,17 +9,20 @@ patternArr = ['[abcdefghijklmnopqrstuvwxyz]'
                 , '[abcdefghijklmnopqrstuvwxyz]'
                 , '[abcdefghijklmnopqrstuvwxyz]']
 
-yellowsArr = ['a']
+yellowsArr = []
 
 while (True): 
     patternupdater.updateArrsWithGuesses(patternArr,yellowsArr)
 
     print(f'Patterns:{patternArr}, Current Yellows:{yellowsArr}')
 
-    # initial search
+    # Search based on user inputs
     results = wordsearch.search(''.join(map(str, patternArr)))
 
-    #yellow filtering
-    filteredResults = list(filter(lambda x: (filt(x, yellowsArr)), results))
+    # Filter out words that don't contain yellows
+    filteredResults = yellowfiltering.doFilter(yellowsArr, results)
 
     print(f"Possible Matches: {filteredResults} total: {len(filteredResults)}")
+    
+    if(len(filteredResults)<=1):
+        exit()

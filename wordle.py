@@ -22,8 +22,8 @@ while (True):
     # Filter out words that don't contain yellows
     filteredResults = wordfiltering.yellowFilter(yellows, results)
 
-    # Sort by uniqueness
-    sortedResults = wordsorter.sortByUniqueness(filteredResults)
+    # Sorting...
+    sortedResults = wordsorter.sortByLetterScore(filteredResults)
 
     print(f"Possible Matches: {sortedResults} Total: {len(sortedResults)}")
     

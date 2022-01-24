@@ -35,6 +35,6 @@ def compareWeightDynamic(a ,b):
     return scoreB-scoreA   
 
 def sortByLetterScoresDynamic(results):
+    global weightedLettersGlobal
     weightedLettersGlobal = calcweightutil.calculate(results)
-    #print(f'dyamic score calculation -> {weightedLettersGlobal}')
     return sorted(results, key=cmp_to_key(compareWeightDynamic))

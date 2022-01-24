@@ -1,5 +1,5 @@
 
-def updateArrsWithGuesses(patternArr, yellowsArr): 
+def updateArrsWithGuesses(patternArr, yellows): 
     guess = list(str(input("Enter guess:")))
     highlight = list(str(input("Enter highlights:")))
     
@@ -13,7 +13,7 @@ def updateArrsWithGuesses(patternArr, yellowsArr):
                     #print(f' BLACK Removed {guess[i]} result -> {patternArr[j]})')
         elif(highlight[i] == 'y'):
             patternArr[i] = patternArr[i].replace(guess[i], '')
-            yellowsArr.append(guess[i])
+            yellows.add(guess[i])
             #print(f'YELLOW Removed {guess[i]} result -> {patternArr[i]}) and appened to yellow -> {yellowsArr}')
         elif(highlight[i] == 'g'):
             patternArr[i] = guess[i]

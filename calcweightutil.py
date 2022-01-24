@@ -7,6 +7,6 @@ def calculate(results):
              , 's':0, 't':0, 'u':0, 'v':0, 'w':0, 'x':0
              , 'y':0, 'z':0}
     for result in results:
-        for char in list(result):
+        for char in set(list(result)):
             lettercount[char]+=1
     return lettercount

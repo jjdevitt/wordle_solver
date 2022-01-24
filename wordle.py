@@ -9,7 +9,10 @@ patterns = ['[abcdefghijklmnopqrstuvwxyz]'
                 , '[abcdefghijklmnopqrstuvwxyz]'
                 , '[abcdefghijklmnopqrstuvwxyz]']
 
-yellows = []
+yellows = set([])
+
+initialResults = wordsearch.search(''.join(map(str, patterns)))
+recommendations.makeInitial(initialResults)
 
 while (True): 
     patternupdater.updateArrsWithGuesses(patterns,yellows)

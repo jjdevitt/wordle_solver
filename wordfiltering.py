@@ -1,9 +1,9 @@
 
 # needed for 
-def yellowFilter(yellowsArr, results):
+def yellowFilter(yellows, results):
     resultSet = set([])
     for result in results:
-        for yellow in yellowsArr:
+        for yellow in yellows:
             if yellow in result:
                 resultSet.add(result)
     return resultSet

@@ -1,6 +1,6 @@
 
-
-def doFilter(yellowsArr, results):
+# needed for 
+def yellowFilter(yellowsArr, results):
     resultSet = set([])
     for result in results:
         for yellow in yellowsArr:

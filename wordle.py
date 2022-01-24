@@ -1,28 +1,31 @@
-from operator import contains
 import wordsearch
 import patternupdater
-import yellowfiltering
+import wordfiltering
+import wordsorter
 
-patternArr = ['[abcdefghijklmnopqrstuvwxyz]'
+patterns = ['[abcdefghijklmnopqrstuvwxyz]'
                 , '[abcdefghijklmnopqrstuvwxyz]'
                 , '[abcdefghijklmnopqrstuvwxyz]'
                 , '[abcdefghijklmnopqrstuvwxyz]'
                 , '[abcdefghijklmnopqrstuvwxyz]']
 
-yellowsArr = []
+yellows = []
 
 while (True): 
-    patternupdater.updateArrsWithGuesses(patternArr,yellowsArr)
+    patternupdater.updateArrsWithGuesses(patterns,yellows)
 
-    print(f'Patterns:{patternArr}, Current Yellows:{yellowsArr}')
+    print(f'Patterns:{patterns} Yellows:{yellows}')
 
     # Search based on user inputs
-    results = wordsearch.search(''.join(map(str, patternArr)))
+    results = wordsearch.search(''.join(map(str, patterns)))
 
     # Filter out words that don't contain yellows
-    filteredResults = yellowfiltering.doFilter(yellowsArr, results)
+    filteredResults = wordfiltering.yellowFilter(yellows, results)
 
-    print(f"Possible Matches: {filteredResults} total: {len(filteredResults)}")
+    # Sort by uniqueness
+    sortedResults = wordsorter.sortByUniqueness(filteredResults)
+
+    print(f"Possible Matches: {sortedResults} Total: {len(sortedResults)}")
     
-    if(len(filteredResults)<=1):
+    if(len(sortedResults)<=1):
         exit()

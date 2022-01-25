@@ -1,4 +1,7 @@
 
+from array import array
+
+
 def updateArrsWithGuesses(patternArr, yellows): 
     guess = list(str(input("Enter guess:")))
     highlight = list(str(input("Enter highlights:")))
@@ -18,6 +21,8 @@ def updateArrsWithGuesses(patternArr, yellows):
         elif(highlight[i] == 'g'):
             patternArr[i] = guess[i]
             #print(f'GREEN Set pattern to {guess[i]} -> {patternArr[i]})')
+            if(guess[i] in yellows and guess.count(guess[i]) == 1):
+                yellows.remove(guess[i])
 
         #print(f'Patterns after update {patternArr}')
         i+=1

@@ -1,0 +1,25 @@
+Suggested starting word: ['adept', 'trode', 'saved', 'prone', 'elvan', 'canoe', 'calor', 'elvan', 'anime', 'arnut']
+Enter guess:anime
+Enter highlights:bybyb
+
+Patterns:['[bcdfghjklmnopqrstuvwxyz]', '[bcdfghjklmopqrstuvwxyz]', '[bcdfghjklmnopqrstuvwxyz]', '[bcdfghjklnopqrstuvwxyz]', '[bcdfghjklmnopqrstuvwxyz]'] Yellows:{'n', 'm'}
+Possible Matches: {'mourn', 'munch', 'nomos', 'moron', 'notum', 'nymph', 'monny', 'mungo', 'myron', 'moorn', 'moony', 'mount', 'month', 'mound', 'mungy', 'numud', 'donum'} Total: 17
+Recommendations (uniqueness): ['mourn', 'munch', 'notum', 'nymph', 'mungo', 'myron', 'mount', 'month', 'mound', 'mungy']
+Recommendations (letter weight): ['mourn', 'myron', 'notum', 'mount', 'month', 'mound', 'donum', 'moron', 'moorn', 'mungo']
+Recommendations (letter weight - dynamic): ['mourn', 'notum', 'mount', 'mound', 'donum', 'mungo', 'myron', 'month', 'monny', 'moony']
+Enter guess:mourn
+Enter highlights:gggby
+
+Patterns:['m', 'o', 'u', '[bcdfghjklnopqstuvwxyz]', '[bcdfghjklmopqstuvwxyz]'] Yellows:{'n'}
+Possible Matches: {'mound', 'mount'} Total: 2
+Recommendations (uniqueness): ['mound', 'mount']
+Recommendations (letter weight): ['mount', 'mound']
+Recommendations (letter weight - dynamic): ['mound', 'mount']
+Enter guess:mound
+Enter highlights:ggggb
+
+Patterns:['m', 'o', 'u', 'n', '[bcfghjklmopqstuvwxyz]'] Yellows:set()
+Possible Matches: {'mount'} Total: 1
+Recommendations (uniqueness): ['mount']
+Recommendations (letter weight): ['mount']
+Recommendations (letter weight - dynamic): ['mount']

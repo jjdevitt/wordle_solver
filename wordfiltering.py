@@ -1,5 +1,3 @@
-
-# needed for 
 def yellowFilter(yellows, results):
     resultSet = set([])
     for result in results:

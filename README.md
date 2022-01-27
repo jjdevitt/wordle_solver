@@ -1,3 +1,3 @@
 # wordle_solver
 
-Bash based wordle solver
+Command line based Wordle Solver, using unix-based dictionary.

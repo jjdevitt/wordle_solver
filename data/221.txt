@@ -1,0 +1,11 @@
+Enter guess:parse
+Enter highlights:bybbb
+
+Enter guess:avoid
+Enter highlights:ybbbb
+
+Enter guess:tubal
+Enter highlights:bbbyb
+
+Enter guess:whack
+Enter highlights:ggggg

@@ -1,7 +1,4 @@
 
-from array import array
-
-
 def updateArrsWithGuesses(patternArr, yellows): 
     guess = list(str(input("Enter guess:")))
     highlight = list(str(input("Enter highlights:")))

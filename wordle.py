@@ -14,7 +14,6 @@ yellows = set([])
 
 words = wordledictonary.get()
 wordsearch.search(''.join(map(str, patterns)), words)
-recommendations.makeInitial(words)
 
 while (True): 
     patternupdater.updateArrsWithGuesses(patterns,yellows)
@@ -25,11 +24,13 @@ while (True):
     words = wordsearch.search(''.join(map(str, patterns)), words)
 
     # Filter out words that don't contain yellows
-    filteredResults = wordfiltering.yellowFilter(yellows, words)
+    filteredResults = wordfiltering.yellows(yellows, words)
 
     print(f"Possible Matches: {filteredResults} Total: {len(filteredResults)}")
 
-    recommendations.make(filteredResults)
+    recommendationList = recommendations.make(filteredResults)
+
+    print(f"Recommendations: {recommendationList} Total: {len(recommendationList)}")
     
     if(len(filteredResults)<=1):
         exit()

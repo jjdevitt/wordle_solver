@@ -1,12 +1,15 @@
-def yellowFilter(yellows, results):
+def yellows(yellows, words):
     resultSet = set([])
-    for result in results:
+    for word in words:
         resultContainsAllYellows = True
         for yellow in yellows:
-            if yellow not in result:
+            if yellow not in word:
                 resultContainsAllYellows=False
                 break
-        if(resultContainsAllYellows and len(result)==5):
-            resultSet.add(result)
+        if(resultContainsAllYellows and len(word)==5):
+            resultSet.add(word)
 
     return resultSet
+
+def uniques(words):
+    return list(filter(lambda x: len(x)==len(set(x)), words))

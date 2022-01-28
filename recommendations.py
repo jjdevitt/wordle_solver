@@ -1,16 +1,21 @@
 import wordsorter
+import wordfiltering
 import random
 
 recommendationCount = 10
 
 def make(results):
-    uniquenessRecommendations = wordsorter.sortByUniqueness(results)[:recommendationCount]
-    print(f'Recommendations (uniqueness): {uniquenessRecommendations}')
-    dynamicWeightRecommendations = wordsorter.sortByLetterScoresDynamic(results)[:recommendationCount]
-    print(f'Recommendations (letter weight - dynamic): {dynamicWeightRecommendations}')
 
-def makeInitial(results): 
-    random.shuffle(results)
-    uniqueRecommendations = wordsorter.sortByUniqueness(results)[:300]
-    weightRecommendations = wordsorter.sortByLetterScoresDynamic(uniqueRecommendations)[:100]
-    print(f'Suggested starting word: {random.choices(weightRecommendations, k=10)}')
+    letterScoreWords = wordsorter.sortByLetterScore(results)[:3*recommendationCount]
+    elimCountWords = wordsorter.sortByEliminationCount(results)[:3*recommendationCount]
+
+    recommendations = []
+    count=0
+    for word in letterScoreWords:
+        if word in elimCountWords:
+            recommendations.append(word)
+            count+=1
+            if(count>=recommendationCount):
+                break
+
+    return recommendations

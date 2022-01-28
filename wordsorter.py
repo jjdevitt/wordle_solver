@@ -1,27 +1,22 @@
 from functools import cmp_to_key
 import calcweightutil
+import operator
 
-def compareUniqueness(a, b):
-    setA = (set(list(a)))
-    setB = (set(list(b)))
-    #print(f'Compaing {setA} to {setB}')
-    return  len(setB)-len(setA) 
+def sortByLetterScore(words):
+    wordScoreTuples = list([])
+    letterScores = calcweightutil.calculate(words)
+    for word in words:
+        wordLetterScore = 0
+        for letter in set(list(word)):
+            wordLetterScore+=letterScores[letter]
+        wordScoreTuples.append((word,wordLetterScore))
+    return list(map(operator.itemgetter(0), sorted(wordScoreTuples, key=lambda wst:wst[1], reverse=True)))
 
-def sortByUniqueness(results):
-    return sorted(results, key=cmp_to_key(compareUniqueness))
-
-weightedLettersGlobal = []
-  
-def compareWeightDynamic(a ,b):
-    scoreA = 0
-    for la in set(list(a)):
-        scoreA+=weightedLettersGlobal[la]
-    scoreB = 0
-    for lb in set(list(b)):
-        scoreB+=weightedLettersGlobal[lb]
-    return scoreB-scoreA   
-
-def sortByLetterScoresDynamic(results):
-    global weightedLettersGlobal
-    weightedLettersGlobal = calcweightutil.calculate(results)
-    return sorted(results, key=cmp_to_key(compareWeightDynamic))
+def sortByEliminationCount(words):
+    elimScoreDict = dict.fromkeys(words,0)
+    
+    for word1 in words:
+        for word2 in words:
+            if len(set(word1).intersection(set(word2))) >0:
+                elimScoreDict[word1]+=1
+    return list(map(operator.itemgetter(0), sorted(elimScoreDict.items(), key =lambda kv:(kv[1], kv[0]), reverse=True)))

@@ -2,6 +2,7 @@ import wordsearch
 import patternupdater
 import wordfiltering
 import recommendations
+import wordledictonary
 
 patterns = ['[abcdefghijklmnopqrstuvwxyz]'
                 , '[abcdefghijklmnopqrstuvwxyz]'
@@ -11,8 +12,9 @@ patterns = ['[abcdefghijklmnopqrstuvwxyz]'
 
 yellows = set([])
 
-initialResults = wordsearch.search(''.join(map(str, patterns)))
-recommendations.makeInitial(initialResults)
+words = wordledictonary.get()
+wordsearch.search(''.join(map(str, patterns)), words)
+recommendations.makeInitial(words)
 
 while (True): 
     patternupdater.updateArrsWithGuesses(patterns,yellows)
@@ -20,10 +22,10 @@ while (True):
     print(f'Patterns:{patterns} Yellows:{yellows}')
 
     # Search based on user inputs
-    results = wordsearch.search(''.join(map(str, patterns)))
+    words = wordsearch.search(''.join(map(str, patterns)), words)
 
     # Filter out words that don't contain yellows
-    filteredResults = wordfiltering.yellowFilter(yellows, results)
+    filteredResults = wordfiltering.yellowFilter(yellows, words)
 
     print(f"Possible Matches: {filteredResults} Total: {len(filteredResults)}")
 

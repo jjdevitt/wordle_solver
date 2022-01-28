@@ -13,9 +13,13 @@ patterns = ['[abcdefghijklmnopqrstuvwxyz]'
 yellows = set([])
 
 words = wordledictonary.get()
-wordsearch.search(''.join(map(str, patterns)), words)
+
+recommendationList = recommendations.makeInitial(words)
+
+print(f"Recommendations: {recommendationList} Total: {len(recommendationList)}")
 
 while (True): 
+
     patternupdater.updateArrsWithGuesses(patterns,yellows)
 
     print(f'Patterns:{patterns} Yellows:{yellows}')

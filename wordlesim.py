@@ -16,9 +16,6 @@ def generateHighlights(guess,word):
             highlights+='b'
     return highlights
 
-
-print(f'highlights {highlights}')
-
 sum = 0
 total = 0
 misses = 0
@@ -32,14 +29,14 @@ for word in wordledictonary.get():
             , '[abcdefghijklmnopqrstuvwxyz]']
 
     yellows = set([])   
-    i=1
+    i=0
     guess = ''
     found = False
     while i<=6:
         i+=1
         guess = recommendations.makeOne(words)
         highlights = generateHighlights(guess,word)
-        if highlights=='ggggg':
+        if guess==word:
             found = True
             break
         patternupdater.updateArrsWithGuesses(patterns,yellows,guess,highlights)

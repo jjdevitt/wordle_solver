@@ -18,4 +18,5 @@ def makeInitial(words):
     print(f'Initial Suggestions: {elimCountWords}')
     
 def makeOne(words):
-    return wordsorter.sortByPositionWeight(words)[0]
+    return random.choice(list(words))
+    #return wordsorter.sortByLetterScore(words)[0]

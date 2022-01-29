@@ -1635,6 +1635,7 @@ def get():
             'safer',
             'saint',
             'salad',
+            'salet',
             'sally',
             'salon',
             'salsa',

@@ -14,13 +14,14 @@ yellows = set([])
 
 words = wordledictonary.get()
 
-recommendationList = recommendations.makeInitial(words)
-
-print(f"Recommendations: {recommendationList} Total: {len(recommendationList)}")
+recommendations.makeInitial(words)
 
 while (True): 
 
-    patternupdater.updateArrsWithGuesses(patterns,yellows)
+
+    guess = list(str(input("Enter guess:")))
+    highlight = list(str(input("Enter highlights:")))
+    patternupdater.updateArrsWithGuesses(patterns,yellows, guess, highlight)
 
     print(f'Patterns:{patterns} Yellows:{yellows}')
 
@@ -32,9 +33,7 @@ while (True):
 
     print(f"Possible Matches: {filteredResults} Total: {len(filteredResults)}")
 
-    recommendationList = recommendations.make(filteredResults)
-
-    print(f"Recommendations: {recommendationList} Total: {len(recommendationList)}")
+    recommendations.makeMultiple(filteredResults)
     
     if(len(filteredResults)<=1):
         exit()

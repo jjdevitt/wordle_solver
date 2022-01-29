@@ -4,7 +4,7 @@ import operator
 
 def sortByLetterScore(words):
     wordScoreTuples = list([])
-    letterScores = calcweightutil.calculate(words)
+    letterScores = calcweightutil.letterCount(words)
     for word in words:
         wordLetterScore = 0
         for letter in set(list(word)):
@@ -19,4 +19,15 @@ def sortByEliminationCount(words):
         for word2 in words:
             if len(set(word1).intersection(set(word2))) >0:
                 elimScoreDict[word1]+=1
-    return list(map(operator.itemgetter(0), sorted(elimScoreDict.items(), key =lambda kv:(kv[1], kv[0]), reverse=True)))
+    return list(map(operator.itemgetter(0), sorted(elimScoreDict.items(), key =lambda es:(es[1], es[0]), reverse=True)))
+
+
+def sortByPositionWeight(words):
+    posWeights = calcweightutil.positionCount(words)
+    posScoreTuples = list([])
+    for word in words:
+        posWeight = 0
+        for i, letter in enumerate(word):
+            posWeight+=posWeights[i][letter]
+        posScoreTuples.append((word,posWeight))
+    return list(map(operator.itemgetter(0), sorted(posScoreTuples, key=lambda wst:wst[1], reverse=True)))

@@ -1,7 +1,5 @@
 
-def updateArrsWithGuesses(patternArr, yellows): 
-    guess = list(str(input("Enter guess:")))
-    highlight = list(str(input("Enter highlights:")))
+def updateArrsWithGuesses(patternArr, yellows, guess, highlight): 
     
     i=0
     while i<5:

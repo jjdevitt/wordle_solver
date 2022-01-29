@@ -1,0 +1,20 @@
+jamardevitt[wordle_solver]:./wordle.sh
+Initial Suggestions: ['stare', 'learn', 'share', 'stage', 'trade', 'caste', 'crane', 'paler', 'blare', 'snare']
+Enter guess:shale
+Enter highlights:bbbgb
+Patterns:['[bcdfgijklmnopqrtuvwxyz]', '[bcdfgijklmnopqrtuvwxyz]', '[bcdfgijklmnopqrtuvwxyz]', 'l', '[bcdfgijklmnopqrtuvwxyz]'] Yellows:set()
+Possible Matches: {'fully', 'wooly', 'drill', 'would', 'dolly', 'wryly', 'idyll', 'built', 'icily', 'willy', 'filly', 'world', 'girly', 'burly', 'dully', 'guild', 'krill', 'coyly', 'moult', 'nobly', 'imply', 'folly', 'lowly', 'could', 'knoll', 'godly', 'curly', 'guilt', 'frill', 'dimly', 'build', 'gully', 'quill', 'troll', 'dilly', 'grill', 'dryly', 'golly', 'droll', 'billy', 'oddly', 'jolly', 'truly', 'quilt', 'bully'} Total: 45
+Letter Score Suggestions: ['girly', 'godly', 'dimly', 'burly', 'truly', 'idyll', 'dilly', 'curly', 'dolly', 'oddly']
+Positon Weight Suggestions: ['dolly', 'golly', 'dully', 'gully', 'folly', 'bully', 'fully', 'jolly', 'dilly', 'willy']
+Enter guess:truly 
+Enter highlights:bbggb
+Patterns:['[bcdfgijklmnopquvwxz]', '[bcdfgijklmnopquvwxz]', 'u', 'l', '[bcdfgijklmnopquvwxz]'] Yellows:set()
+Possible Matches: {'could', 'would'} Total: 2
+Letter Score Suggestions: ['could', 'would']
+Positon Weight Suggestions: ['could', 'would']
+Enter guess:would
+Enter highlights:bgggg
+Patterns:['[bcdfgijklmnopquvxz]', 'o', 'u', 'l', 'd'] Yellows:set()
+Possible Matches: {'could'} Total: 1
+Letter Score Suggestions: ['could']
+Positon Weight Suggestions: ['could']

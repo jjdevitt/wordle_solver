@@ -1,4 +1,3 @@
-from calcweightutil import positionCount
 import wordsorter
 import random
 
@@ -16,5 +15,4 @@ def makeInitial(words):
     print(f'Initial Suggestions: {positionWeight[:recommendationCount]}')
     
 def makeOne(words):
-    #return random.choice(list(words))
     return wordsorter.sortByPositionWeight(words)[0]

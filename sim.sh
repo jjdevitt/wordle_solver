@@ -1,1 +1,1 @@
-python3 ./wordlesim.py
+node ./wordlesim.js

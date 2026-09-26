@@ -1,1 +1,1 @@
-python3 ./wordlehelper.py
+node ./wordlehelper.js

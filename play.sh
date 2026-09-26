@@ -1,1 +1,1 @@
-python3 play.py
+node ./play.js

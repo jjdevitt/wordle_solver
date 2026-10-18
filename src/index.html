@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self';"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wordle Solver</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <h1>WORDLE SOLVER</h1>
+        <span class="subtitle">Interactive Clue Filter &amp; Word Recommendation Engine</span>
+      </div>
+      <div class="header-actions">
+        <button id="undo-btn" class="btn btn-secondary" disabled title="Undo last submitted row">
+          Undo Row
+        </button>
+        <button id="reset-btn" class="btn btn-secondary" title="Reset solver state">
+          Reset Solver
+        </button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="board-section">
+        <div class="status-banner" id="status-banner">
+          Type a 5-letter guess (or click a suggested word), click tiles to set colors, then press <strong>Enter</strong>.
+        </div>
+
+        <div class="board" id="board" aria-label="Wordle 6 by 5 grid"></div>
+
+        <div class="tile-legend">
+          <span class="legend-label">Click active row tiles to cycle clue color:</span>
+          <div class="legend-items">
+            <span class="legend-chip absent">Gray (B) = Absent</span>
+            <span class="legend-chip present">Yellow (Y) = Wrong Spot</span>
+            <span class="legend-chip correct">Green (G) = Correct Spot</span>
+          </div>
+        </div>
+
+        <div class="row-controls">
+          <button id="submit-row-btn" class="btn btn-primary" disabled>
+            Submit Guess &amp; Clues (Enter)
+          </button>
+          <button id="clear-row-btn" class="btn btn-ghost" disabled>
+            Clear Row
+          </button>
+        </div>
+
+        <div class="keyboard" id="keyboard" aria-label="On-screen keyboard"></div>
+      </section>
+
+      <aside class="solver-panel">
+        <div class="stats-bar">
+          <div class="stat-card">
+            <span class="stat-value" id="remaining-count">2309</span>
+            <span class="stat-label">Possible Matches</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="turn-count">0 / 6</span>
+            <span class="stat-label">Guesses Entered</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="yellows-display">None</span>
+            <span class="stat-label">Required Yellows</span>
+          </div>
+        </div>
+
+        <div class="recommendations-grid">
+          <div class="panel-card" id="initial-card">
+            <div class="card-header">
+              <h2>Initial Suggestions</h2>
+              <button id="shuffle-initial-btn" class="btn-mini" title="Reshuffle top 50 initial picks">
+                Shuffle
+              </button>
+            </div>
+            <p class="card-hint">Top letter-score words weighted by letter position (click to use)</p>
+            <div class="word-chips" id="initial-suggestions"></div>
+          </div>
+
+          <div class="panel-card">
+            <div class="card-header">
+              <h2>Position Weight Top 10</h2>
+              <span class="badge">Positional</span>
+            </div>
+            <p class="card-hint">Ranked by letter frequency in each exact slot (1–5)</p>
+            <div class="word-chips" id="position-suggestions"></div>
+          </div>
+
+          <div class="panel-card">
+            <div class="card-header">
+              <h2>Letter Score Top 10</h2>
+              <span class="badge">Coverage</span>
+            </div>
+            <p class="card-hint">Ranked by unique letter frequency across remaining words</p>
+            <div class="word-chips" id="letter-suggestions"></div>
+          </div>
+        </div>
+
+        <div class="panel-card matches-card">
+          <div class="card-header">
+            <h2>All Possible Matches (<span id="matches-header-count">2309</span>)</h2>
+            <input
+              type="text"
+              id="match-filter-input"
+              class="filter-input"
+              placeholder="Filter matches..."
+              maxlength="5"
+            />
+          </div>
+          <div class="word-chips scrollable-matches" id="possible-matches"></div>
+        </div>
+
+        <div class="panel-card pattern-card">
+          <div class="card-header">
+            <h2>Slot Pattern State</h2>
+            <span class="badge">Regex</span>
+          </div>
+          <div class="slot-patterns" id="slot-patterns"></div>
+        </div>
+      </aside>
+    </main>
+
+    <script type="module" src="./renderer.js"></script>
+  </body>
+</html>
+

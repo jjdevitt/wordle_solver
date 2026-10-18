@@ -1,1 +1,0 @@
-node ./wordlehelper.js

@@ -1,32 +1,27 @@
-const path = require('path');
-const { app, BrowserWindow, ipcMain, shell } = require('electron');
-const { SolverSession } = require('./solversession');
+import { app, BrowserWindow } from 'electron';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const WORDLE_URL = 'https://www.nytimes.com/games/wordle/index.html';
-
-const session = new SolverSession();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function createWindow() {
-  const win = new BrowserWindow({
-    width: 1000,
+  const mainWindow = new BrowserWindow({
+    width: 1120,
     height: 820,
-    title: 'Wordle Solver',
+    minWidth: 860,
+    minHeight: 680,
     backgroundColor: '#121213',
+    title: 'Wordle Solver',
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
       nodeIntegration: false,
     },
   });
 
-  win.loadFile(path.join(__dirname, 'renderer', 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, 'src', 'index.html'));
 }
-
-ipcMain.handle('solver:reset', () => session.reset());
-
-ipcMain.handle('solver:guess', (event, guess, highlight) => session.submitGuess(guess, highlight));
-
-ipcMain.handle('solver:openWordle', () => shell.openExternal(WORDLE_URL));
 
 app.whenReady().then(() => {
   createWindow();
@@ -43,3 +38,4 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
+

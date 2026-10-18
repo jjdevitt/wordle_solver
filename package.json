@@ -1,52 +1,15 @@
 {
   "name": "wordle-solver",
   "version": "1.0.0",
-  "description": "Desktop Wordle Solver built with Electron",
+  "description": "Wordle Solver desktop application built with JavaScript and Electron",
+  "type": "module",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "helper": "node ./wordlehelper.js",
-    "play": "node ./play.js",
-    "sim": "node ./wordlesim.js",
-    "dist": "electron-builder"
+    "test": "node --test test/solver.test.js"
   },
-  "license": "MIT",
   "devDependencies": {
-    "electron": "44.3.0",
-    "electron-builder": "26.16.1"
-  },
-  "build": {
-    "appId": "com.jjdevitt.wordlesolver",
-    "productName": "Wordle Solver",
-    "files": [
-      "main.js",
-      "preload.js",
-      "solversession.js",
-      "calcweightutil.js",
-      "patternupdater.js",
-      "recommendations.js",
-      "wordfiltering.js",
-      "wordledictonary.js",
-      "wordledictonaryOriginal.js",
-      "wordsearch.js",
-      "wordsorter.js",
-      "renderer/**/*"
-    ],
-    "linux": {
-      "target": [
-        "AppImage"
-      ],
-      "category": "Game"
-    },
-    "mac": {
-      "target": [
-        "dmg"
-      ]
-    },
-    "win": {
-      "target": [
-        "nsis"
-      ]
-    }
+    "electron": "^44.9.0"
   }
 }
+
